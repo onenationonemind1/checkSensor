@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>내 포트폴리오</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1rem;
+        }
+        nav {
+            background: #444;
+            color: #fff;
+            padding: 0.5rem;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin-right: 10px;
+        }
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+            padding: 20px;
+        }
+        .project {
+            background: #f4f4f4;
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        #skills {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .skill {
+            background: #333;
+            color: #fff;
+            padding: 5px 10px;
+            margin: 5px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>윤창훈의 포토폴리오</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#about">소개</a></li>
+            <li><a href="#projects">프로젝트</a></li>
+            <li><a href="#skills">기술</a></li>
+            <li><a href="#contact">연락처</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <section id="about">
+            <h2>소개</h2>
+            <p>안녕하세요, 저는 펌웨어 S/W 개발자 홍길동입니다. 창의적인 문제 해결과 효율적인 코드 작성에 열정을 가지고 있습니다.</p>
+        </section>
+
+        <section id="projects">
+            <h2>프로젝트</h2>
+            <div class="project">
+                <h3>프로젝트 1</h3>
+                <p>이 프로젝트는 React를 사용하여 만든 웹 애플리케이션입니다.</p>
+            </div>
+            <div class="project">
+                <h3>프로젝트 2</h3>
+                <p>이 프로젝트는 Node.js와 Express를 사용하여 만든 백엔드 서버입니다.</p>
+            </div>
+        </section>
+
+        <section id="skills">
+            <h2>기술</h2>
+            <div class="skill">HTML</div>
+            <div class="skill">CSS</div>
+            <div class="skill">JavaScript</div>
+            <div class="skill">React</div>
+            <div class="skill">Node.js</div>
+        </section>
+
+        <section id="contact">
+            <h2>연락처</h2>
+            <p>이메일: hong@example.com</p>
+            <p>전화번호: 010-1234-5678</p>
+        </section>
+    </div>
+
+    <script>
+        // 간단한 애니메이션 효과
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                section.style.opacity = '0';
+                section.style.transition = 'opacity 0.5s ease-in-out';
+            });
+
+            function isInViewport(element) {
+                const rect = element.getBoundingClientRect();
+                return (
+                    rect.top >= 0 &&
+                    rect.left >= 0 &&
+                    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+                );
+            }
+
+            function handleScroll() {
+                sections.forEach(section => {
+                    if (isInViewport(section)) {
+                        section.style.opacity = '1';
+                    }
+                });
+            }
+
+            window.addEventListener('scroll', handleScroll);
+            handleScroll(); // 초기 로드 시 실행
+        });
+
+        // 스킬 섹션에 마우스 오버 효과
+        const skills = document.querySelectorAll('.skill');
+        skills.forEach(skill => {
+            skill.addEventListener('mouseover', function() {
+                this.style.transform = 'scale(1.1)';
+                this.style.transition = 'transform 0.3s ease-in-out';
+            });
+            skill.addEventListener('mouseout', function() {
+                this.style.transform = 'scale(1)';
+            });
+        });
+    </script>
+</body>
+</html>
